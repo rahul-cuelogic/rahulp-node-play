@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "testing hapi js framework",
   "dependencies": {
-    "hapi": "10.x.x"
+    "hapi": "10.x.x",
+    "inert": "~3.2.0",
+    "good": "~6.4.0",
+    "good-console": "~5.2.0"
   }
 }
