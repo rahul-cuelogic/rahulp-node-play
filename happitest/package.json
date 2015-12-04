@@ -1,0 +1,8 @@
+{
+  "name": "happytest",
+  "version": "0.0.1",
+  "description": "testing hapi js framework",
+  "dependencies": {
+    "hapi": "10.x.x"
+  }
+}
