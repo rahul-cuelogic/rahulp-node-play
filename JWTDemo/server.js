@@ -78,6 +78,31 @@ apiRoutes.post('/authenticate', function(req, res) {
   });
 });
 
+apiRoutes.post('/signup', function(req, res) {
+
+var userName=req.body.userName;
+var password=req.body.password;
+var isAdmin=req.body.isAdmin;
+console.log(req.body);
+
+// create a sample user
+  var guest = new User({ 
+    name: userName, 
+    password: password,
+    admin: isAdmin 
+  });
+
+  // save the sample user
+  guest.save(function(err) {
+    if (err) throw err;
+
+    console.log('User saved successfully');
+    res.json({ success: true });
+  });/**/
+
+});
+
+
 // route middleware to verify a token
 apiRoutes.use(function(req, res, next) {
 
