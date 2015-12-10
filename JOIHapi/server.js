@@ -2,6 +2,7 @@
 
 var Hapi = require('hapi');
 var Joi = require('joi');
+var Boom = require('boom');
 var server = new Hapi.Server();
 server.connection({ port: 3000 });
 
@@ -9,7 +10,8 @@ server.route({
     method: 'GET',
     path: '/',
     handler: function (request, reply) {
-        reply('Hello, world!');
+        //reply('Hello, world!');
+        reply(Boom.badRequest('invalid query param e.g. /hello/YOURNAME'));
     }
 });
 
