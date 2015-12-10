@@ -1,0 +1,20 @@
+{
+  "name": "JOIHapi",
+  "version": "0.0.0",
+  "description": "JOI test with hapi",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "joi",
+    "hapi"
+  ],
+  "author": "Rahul Palake",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "hapi": "~11.1.2",
+    "joi": "^7.0.1"
+  }
+}
