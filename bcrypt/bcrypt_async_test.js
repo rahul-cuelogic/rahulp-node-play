@@ -10,6 +10,10 @@ async.waterfall([
 	function _getSalt(cb){
 		
 		bcrypt.genSalt(10, function(err, salt) {
+			if(err){
+				cb(err);
+			}
+
 			cb(null, salt);
 		});
 
@@ -20,6 +24,11 @@ async.waterfall([
 
 		bcrypt.hash(mypass, salt, function(err, hash) {
         	// Store hash in your password DB.
+        	
+        	if(err){
+				cb(err);
+			}
+
 			cb(null, hash);
     	});
 	},
@@ -28,19 +37,25 @@ async.waterfall([
 
 		bcrypt.compare(mypass, hash, function(err, res) {
     		// res === true since we are using same password
+
+    		if(err){
+				cb(err);
+			}
+
 			cb(null, res);
 		});
 	},
 		
 	], function (err, result) {
-	    if(err)
+	    if(err) {
 	    	console.log(err);
-
-		if(result){
-			console.log('hash matched');
-		} else {
-			console.log('hash match failed');
-		}
+	    } else {
+			if(result){
+				console.log('hash matched');
+			} else {
+				console.log('hash match failed');
+			}
+	    }
     
 });
 
